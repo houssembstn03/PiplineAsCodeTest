@@ -2,9 +2,11 @@ pipeline {
   agent any
   tools{
     maven 'maven-3.8.3'
+    
        }
   environment{
     PATH= "${PATH}"
+   
 
   }
   
@@ -13,9 +15,10 @@ pipeline {
              steps{
                     sh'''
                     echo "PATH= ${PATH}" 
+                    
                     '''
                   }
-             }
+        }
              
 
     stage('Git Checkout') {
@@ -24,9 +27,14 @@ pipeline {
       }
     }
     stage("Maven Build"){
-      steps{
-        sh "mvn clean install"
-      }
+     steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/*/.xml' 
+                }
+            }
     }
   }
 }
