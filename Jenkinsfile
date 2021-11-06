@@ -1,18 +1,28 @@
 pipeline {
   agent any
-  environment{
-    PATH = "/opt/maven3/bin:$PATH"
+  tools{
+    maven 'maven-3.8.3'
+       }
   }
   stages {
+        stage('Initial'){
+             steps{
+                    sh'''
+                    echo "PATH= ${PATH}" 
+                    '''
+                  }
+             }
+             
+
     stage('Git Checkout') {
      steps {
        git branch: 'main', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/MYApp.git'
       }
     }
-    stage("Maven Build"){
+    /*stage("Maven Build"){
       steps{
         sh "mvn clean package"
       }
-    }
+    }*/
   }
 }
