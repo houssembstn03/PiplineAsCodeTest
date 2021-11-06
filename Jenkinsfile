@@ -28,7 +28,7 @@ pipeline {
     }
     stage("Maven Build"){
      steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                sh '''mvn install:install-file -Dfile='c:\\kaptcha-2.3.jar' -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar'''
             }
             post {
                 success {
