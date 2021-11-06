@@ -3,6 +3,10 @@ pipeline {
   tools{
     maven 'maven-3.8.3'
        }
+  environment{
+    PATH= "${PATH}"
+
+  }
   
   stages {
         stage('Initial'){
