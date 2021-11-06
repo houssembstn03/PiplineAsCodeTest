@@ -1,26 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Git Checkout') {
      steps {
-        echo 'Build completed '
-        timeout(time: 5, unit: 'SECONDS') {
-           sh 'sleep 2'
-}
+       git branch: 'main', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/MYApp.git'
       }
     }
 
-    stage('Test') {
-      steps {
-        echo 'Test completed '
-      }
-    }
-
-   stage('Deploy') {
-      steps {
-        echo 'Deploy completed '
-      }
-    }
+    
 
   }
 }
