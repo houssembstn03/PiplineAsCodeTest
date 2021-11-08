@@ -12,14 +12,7 @@ pipeline {
   }
   
   stages {
-        stage('Initial'){
-             steps{
-                    sh'''
-                    echo "PATH= ${PATH}" 
-                    
-                    '''
-                  }
-        }
+        
              
 
     stage('Git Checkout') {
@@ -29,8 +22,8 @@ pipeline {
     }
     stage("Maven Build"){
      steps {
-                sh '''mvn -version 
-                mvn -Dplugin=install help:describe'''
+                sh '''mvn -version '''
+                sh '''mvn -Dplugin=install help:describe'''
             }
             
     }
