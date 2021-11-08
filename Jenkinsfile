@@ -4,6 +4,7 @@ pipeline {
     maven 'maven-3.8.3'
     
     
+
        }
   environment{
     PATH= "${PATH}"
@@ -17,7 +18,7 @@ pipeline {
 
     stage('Git Checkout') {
      steps {
-       git branch: 'main', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/MYApp.git'
+       git branch: 'master', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/demo1.git'
       }
     }
 
