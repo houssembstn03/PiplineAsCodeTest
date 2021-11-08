@@ -17,7 +17,7 @@ pipeline {
 
     stage('Git Checkout') {
      steps {
-       git branch: 'main', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/PiplineAsCodeTest.git'
+       git branch: 'main', credentialsId: 'githubID', url: 'https://github.com/houssembstn03/MYApp.git'
       }
     }
 
