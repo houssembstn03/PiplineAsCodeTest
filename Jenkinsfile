@@ -29,7 +29,8 @@ pipeline {
     }
     stage("Maven Build"){
      steps {
-                sh '''mvn -version'''
+                sh '''mvn -version 
+                mvn -Dplugin=install help:describe'''
             }
             
     }
