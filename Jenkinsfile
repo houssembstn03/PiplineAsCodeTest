@@ -29,7 +29,7 @@ pipeline {
     }
     stage("Maven Build"){
      steps {
-                sh '''mvn mvn clean --file *.pom package'''
+                sh '''mvn -version'''
             }
             
     }
